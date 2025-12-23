@@ -1,49 +1,131 @@
 <!DOCTYPE html>
-<html>
+<html lang="ar" dir="rtl">
 <head>
-    <title>E-Library Hub</title>
+    <title>ASU FIT Hub</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
-        body {
-            background-color: #000;
-            color: white;
-            font-family: Arial, sans-serif;
-            text-align: center;
-            padding: 50px;
+        /* BASE STYLES */
+        body { 
+            background-color: #050505; 
+            color: white; 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            text-align: center; 
+            padding: 20px; 
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            margin: 0;
+            overflow: hidden; 
         }
-        .container {
-            max-width: 600px;
-            margin: 0 auto;
+
+        /* LOGO ANIMATION */
+        .logo-box img { 
+            height: 110px; /* Slightly larger for impact */
+            margin: 0 20px; 
+            vertical-align: middle;
+            filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.5));
+            transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
+        .logo-box img:hover { transform: scale(1.15) rotate(2deg); }
+
+        /* NEON TITLE */
         h1 {
-            text-shadow: 0 0 10px #00d4ff; /* Neon Glow */
+            font-size: 2.8rem;
+            margin: 40px 0;
+            color: #fff;
+            text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 20px #00d4ff, 0 0 30px #00d4ff;
+            animation: flicker 3s infinite alternate;
         }
-        .btn {
-            display: block;
+
+        @keyframes flicker {
+            0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
+                text-shadow: 0 0 4px #fff, 0 0 11px #fff, 0 0 19px #00d4ff, 0 0 40px #00d4ff;
+                opacity: 1;
+            }
+            20%, 24%, 55% { text-shadow: none; opacity: 0.8; }
+        }
+
+        /* MENU CONTAINER */
+        .menu-container {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
             width: 100%;
-            padding: 15px;
-            margin: 20px 0;
-            background: linear-gradient(45deg, #00d4ff, #0051ff);
-            color: white;
-            text-decoration: none;
-            border-radius: 5px;
+            max-width: 450px;
+        }
+
+        /* BUTTON DESIGN */
+        .menu-btn {
+            display: block;
+            padding: 25px;
+            font-size: 1.3rem;
             font-weight: bold;
-            box-shadow: 0 0 15px #0051ff; /* Neon Button Glow */
+            text-decoration: none;
+            color: white;
+            border-radius: 15px;
+            background: rgba(25, 25, 25, 0.8);
+            border: 1px solid #333;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            backdrop-filter: blur(5px);
+            
+            /* Entrance Animation */
+            opacity: 0;
+            animation: slideUp 0.8s forwards;
         }
-        .btn:hover {
-            transform: scale(1.02); /* Pop effect on hover */
+
+        /* Button 1: Plans (Cyan Glow) */
+        .btn-plans { border-color: #00d4ff; animation-delay: 0.2s; }
+        .btn-plans:hover { 
+            background: #00d4ff; 
+            color: #000; 
+            box-shadow: 0 0 40px rgba(0, 212, 255, 0.6); 
+            transform: scale(1.05); 
         }
+
+        /* Button 2: Videos (Purple Glow) */
+        .btn-videos { border-color: #d400ff; animation-delay: 0.4s; }
+        .btn-videos:hover { 
+            background: #d400ff; 
+            color: #000; 
+            box-shadow: 0 0 40px rgba(212, 0, 255, 0.6); 
+            transform: scale(1.05); 
+        }
+
+        @keyframes slideUp {
+            from { transform: translateY(60px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        .footer { color: #666; margin-top: 60px; font-size: 0.9rem; letter-spacing: 1px;}
+
     </style>
 </head>
 <body>
 
-    <div class="container">
-        <h1>E-Library Hub</h1>
-        <p>Your first destination for university success</p> <br>
-
-        <a href="#" class="btn">JOIN WHATSAPP COMMUNITY</a>
-        <a href="#" class="btn" style="background: linear-gradient(45deg, #d400ff, #7a00ff); box-shadow: 0 0 15px #7a00ff;">RECENT UPLOADS</a>
-        <a href="#" class="btn" style="background: linear-gradient(45deg, #00ffcc, #008f72); box-shadow: 0 0 15px #008f72;">MAKE A REQUEST</a>
+    <div class="logo-box">
+        <img src="asu_logo.png" alt="ASU Logo">
+        <img src="fit_logo.png" alt="FIT Logo">
     </div>
+
+    <h1>دليلك الشامل للحياة الجامعية</h1>
+
+    <div class="menu-container">
+        
+        <a href="plans.html" class="menu-btn btn-plans">
+            📄 الخطط الدراسية (Study Plans)
+        </a>
+
+        <a href="#" class="menu-btn btn-videos" target="_blank" onclick="alert('Video link coming soon!');">
+            🎥 الفيديوهات الإرشادية (Help Videos)
+        </a>
+
+    </div>
+
+    <p class="footer">© 2026 E-Library Hub</p>
 
 </body>
 </html>
