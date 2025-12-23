@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
         body { 
-            /* Same Professional Background */
+            /* Professional IT Background */
             background: 
                 linear-gradient(rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.95)),
                 url('https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=2070&auto=format&fit=crop');
@@ -23,7 +23,8 @@
             color: white; 
             margin-bottom: 40px; 
             font-size: 2.2rem;
-            text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+            /* Changed shadow to Red #9D0208 */
+            text-shadow: 0 4px 10px #9D0208;
         }
 
         .grid-container {
@@ -41,21 +42,32 @@
             backdrop-filter: blur(10px);
         }
         
-        /* Subtle Lift on Hover */
+        /* Red Hover Effect */
         .major-card:hover { 
             transform: translateY(-3px); 
-            border-color: #00d4ff; 
+            border-color: #9D0208; 
+            box-shadow: 0 0 15px rgba(157, 2, 8, 0.4);
         }
 
         h3 { margin-top: 0; border-bottom: 1px solid #444; padding-bottom: 15px; color: #eee; }
 
         .download-btn {
             display: block; width: 100%; text-align: center; padding: 12px 0; margin-top: 20px;
-            background-color: transparent; border: 1px solid #00d4ff; color: #00d4ff; 
+            background-color: transparent; 
+            
+            /* Red Border and Text */
+            border: 1px solid #9D0208; 
+            color: #9D0208; 
+            
             text-decoration: none; border-radius: 6px; font-weight: 600;
             transition: 0.2s;
         }
-        .download-btn:hover { background: #00d4ff; color: #000; }
+        
+        /* Red Background on Hover */
+        .download-btn:hover { 
+            background: #9D0208; 
+            color: #fff; 
+        }
 
         .back-link { display: inline-block; margin-top: 50px; color: #888; text-decoration: none; font-size: 0.9rem;}
         .back-link:hover { color: white; }
