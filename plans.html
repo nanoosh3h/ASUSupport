@@ -4,162 +4,92 @@
     <title>اختر التخصص</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
-        /* BASE STYLES */
         body { 
-            background-color: #050505; 
+            /* Same Professional Background */
+            background: 
+                linear-gradient(rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.95)),
+                url('https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=2070&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            
             color: white; 
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
             text-align: center; 
-            padding: 40px; 
-            overflow-x: hidden;
+            padding: 40px 20px; 
         }
 
-        /* NEON TITLE ANIMATION */
-        h1 {
-            font-size: 2.5rem;
-            margin-bottom: 50px;
-            color: #fff;
-            text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 20px #00d4ff, 0 0 30px #00d4ff, 0 0 40px #00d4ff;
-            animation: flicker 1.5s infinite alternate;
+        h1 { 
+            color: white; 
+            margin-bottom: 40px; 
+            font-size: 2.2rem;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.5);
         }
 
-        @keyframes flicker {
-            0%, 18%, 22%, 25%, 53%, 57%, 100% {
-                text-shadow: 0 0 4px #fff, 0 0 11px #fff, 0 0 19px #00d4ff, 0 0 40px #00d4ff, 0 0 80px #00d4ff, 0 0 90px #00d4ff;
-            }
-            20%, 24%, 55% {       
-                text-shadow: none;
-            }
-        }
-
-        /* GRID LAYOUT */
         .grid-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 25px;
-            max-width: 1100px;
-            margin: 0 auto;
-            perspective: 1000px; 
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px; max-width: 1100px; margin: 0 auto;
         }
 
-        /* CARD DESIGN & ANIMATION */
         .major-card {
-            background: rgba(20, 20, 20, 0.8);
-            border: 1px solid #333;
-            padding: 30px;
-            border-radius: 15px;
-            text-align: right;
-            position: relative;
-            overflow: hidden;
-            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease, border-color 0.4s ease;
-            
-            /* Slide-in Animation on Load */
-            opacity: 0;
-            animation: slideIn 0.6s forwards;
+            background: rgba(30, 30, 30, 0.8); 
+            border: 1px solid #444; 
+            padding: 25px; 
+            border-radius: 8px; 
+            text-align: right; 
+            transition: 0.2s;
+            backdrop-filter: blur(10px);
+        }
+        
+        /* Subtle Lift on Hover */
+        .major-card:hover { 
+            transform: translateY(-3px); 
+            border-color: #00d4ff; 
         }
 
-        /* Stagger animations for each card */
-        .major-card:nth-child(1) { animation-delay: 0.1s; }
-        .major-card:nth-child(2) { animation-delay: 0.2s; }
-        .major-card:nth-child(3) { animation-delay: 0.3s; }
-        .major-card:nth-child(4) { animation-delay: 0.4s; }
-        .major-card:nth-child(5) { animation-delay: 0.5s; }
+        h3 { margin-top: 0; border-bottom: 1px solid #444; padding-bottom: 15px; color: #eee; }
 
-        @keyframes slideIn {
-            from { transform: translateY(50px); opacity: 0; }
-            to { transform: translateY(0); opacity: 1; }
-        }
-
-        /* HOVER EFFECTS */
-        .major-card:hover {
-            transform: scale(1.05) translateY(-10px);
-            border-color: #00d4ff;
-            box-shadow: 0 0 30px rgba(0, 212, 255, 0.4);
-            z-index: 10;
-        }
-
-        .major-card h3 {
-            color: #fff;
-            margin-top: 0;
-            border-bottom: 1px solid #444;
-            padding-bottom: 15px;
-            font-size: 1.4rem;
-        }
-
-        /* BUTTONS */
         .download-btn {
-            display: block;
-            width: 100%;
-            text-align: center;
-            padding: 12px 0;
-            margin-top: 15px;
-            background: transparent;
-            color: #00d4ff;
-            border: 2px solid #00d4ff;
-            text-decoration: none;
-            border-radius: 8px;
-            font-weight: bold;
-            font-size: 1.1rem;
-            transition: all 0.3s ease;
+            display: block; width: 100%; text-align: center; padding: 12px 0; margin-top: 20px;
+            background-color: transparent; border: 1px solid #00d4ff; color: #00d4ff; 
+            text-decoration: none; border-radius: 6px; font-weight: 600;
+            transition: 0.2s;
         }
+        .download-btn:hover { background: #00d4ff; color: #000; }
 
-        .download-btn:hover {
-            background: #00d4ff;
-            color: #000;
-            box-shadow: 0 0 20px #00d4ff;
-        }
-
-        .back-link {
-            color: #888;
-            text-decoration: none;
-            margin-top: 60px;
-            display: inline-block;
-            font-size: 1.1rem;
-            transition: color 0.3s;
-        }
+        .back-link { display: inline-block; margin-top: 50px; color: #888; text-decoration: none; font-size: 0.9rem;}
         .back-link:hover { color: white; }
-
     </style>
 </head>
 <body>
 
-    <h1>اختر تخصصك</h1>
+    <h1>اختر تخصصك الأكاديمي</h1>
 
     <div class="grid-container">
         
         <div class="major-card">
             <h3>💻 علم الحاسوب (CS)</h3>
-            <a href="https://drive.google.com/drive/u/0/folders/1o-krQ7kBgeeStnBqh3OSsn5FALgMRP-g" class="download-btn" target="_blank">
-                عرض الخطط الدراسية ➜
-            </a>
+            <a href="https://drive.google.com/drive/u/0/folders/1o-krQ7kBgeeStnBqh3OSsn5FALgMRP-g" class="download-btn" target="_blank">عرض الخطط ➜</a>
         </div>
 
         <div class="major-card">
             <h3>⚙️ هندسة البرمجيات (SE)</h3>
-            <a href="https://drive.google.com/drive/u/0/folders/1_QiyokuW3ovr5Va2_aD9-kP-k3TflD1L" class="download-btn" target="_blank">
-                عرض الخطط الدراسية ➜
-            </a>
+            <a href="https://drive.google.com/drive/u/0/folders/1_QiyokuW3ovr5Va2_aD9-kP-k3TflD1L" class="download-btn" target="_blank">عرض الخطط ➜</a>
         </div>
 
         <div class="major-card">
-            <h3>🛡️ الأمن السيبراني والحوسبة السحابية</h3>
-            <a href="https://drive.google.com/drive/u/0/folders/1hEtuAfMb6bl2JkY2BjZZ0rlmVyJzcAir" class="download-btn" target="_blank">
-                عرض الخطط الدراسية ➜
-            </a>
+            <h3>🛡️ الأمن السيبراني</h3>
+            <a href="https://drive.google.com/drive/u/0/folders/1hEtuAfMb6bl2JkY2BjZZ0rlmVyJzcAir" class="download-btn" target="_blank">عرض الخطط ➜</a>
         </div>
 
         <div class="major-card">
-            <h3>🎮 الواقع الممتد وتطوير الألعاب</h3>
-            <a href="https://drive.google.com/drive/u/0/folders/1wp48lCqJcnjJ1Jo_msUubldT-BLekgj5" class="download-btn" target="_blank">
-                عرض الخطط الدراسية ➜
-            </a>
+            <h3>🎮 الواقع الممتد (XR)</h3>
+            <a href="https://drive.google.com/drive/u/0/folders/1wp48lCqJcnjJ1Jo_msUubldT-BLekgj5" class="download-btn" target="_blank">عرض الخطط ➜</a>
         </div>
 
         <div class="major-card">
             <h3>📊 علم البيانات والذكاء الاصطناعي</h3>
-            <a href="https://drive.google.com/drive/u/0/folders/1CMufjmEGQ_iVvYqh5CZ8MC92xOSQDJec" class="download-btn" target="_blank">
-                عرض الخطط الدراسية ➜
-            </a>
+            <a href="https://drive.google.com/drive/u/0/folders/1CMufjmEGQ_iVvYqh5CZ8MC92xOSQDJec" class="download-btn" target="_blank">عرض الخطط ➜</a>
         </div>
 
     </div>
