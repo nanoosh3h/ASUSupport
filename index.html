@@ -4,104 +4,75 @@
     <title>ASU FIT Hub</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
-        /* BASE STYLES */
         body { 
-            background-color: #050505; 
+            /* Professional IT Background with Dark Overlay */
+            background: 
+                linear-gradient(rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.95)),
+                url('https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=2070&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            
             color: white; 
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
             text-align: center; 
             padding: 20px; 
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            margin: 0;
-            overflow: hidden; 
+            height: 100vh; 
+            display: flex; 
+            flex-direction: column; 
+            justify-content: center; 
+            align-items: center; 
+            margin: 0; 
         }
 
-        /* LOGO ANIMATION */
+        /* LOGO STYLES (Static & Professional) */
         .logo-box img { 
             height: 110px; 
             margin: 0 20px; 
             vertical-align: middle;
-            filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.5));
-            transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            filter: drop-shadow(0 0 4px rgba(255, 255, 255, 0.2));
+            /* No hover animation here anymore */
         }
-        .logo-box img:hover { transform: scale(1.15) rotate(2deg); }
 
-        /* NEON TITLE */
+        /* TITLE STYLES (Steady, No Flicker) */
         h1 {
-            font-size: 2.8rem;
-            margin: 40px 0;
+            font-size: 2.6rem; 
+            margin: 25px 0 10px 0; 
             color: #fff;
-            text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 20px #00d4ff, 0 0 30px #00d4ff;
-            animation: flicker 3s infinite alternate;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.5); /* Clean shadow instead of neon glow */
+            font-weight: 700;
         }
 
-        @keyframes flicker {
-            0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
-                text-shadow: 0 0 4px #fff, 0 0 11px #fff, 0 0 19px #00d4ff, 0 0 40px #00d4ff;
-                opacity: 1;
-            }
-            20%, 24%, 55% { text-shadow: none; opacity: 0.8; }
+        /* WELCOME MESSAGE */
+        .welcome-msg {
+            font-size: 1.2rem;
+            color: #ccc;
+            margin-bottom: 40px;
+            max-width: 600px;
+            line-height: 1.6;
         }
 
-        /* MENU CONTAINER */
-        .menu-container {
-            display: flex;
-            flex-direction: column;
-            gap: 25px;
-            width: 100%;
-            max-width: 450px;
-        }
-
-        /* BUTTON DESIGN */
+        /* MENU BUTTONS */
+        .menu-container { width: 100%; max-width: 420px; display: flex; flex-direction: column; gap: 20px; }
+        
         .menu-btn {
-            display: block;
-            padding: 25px;
-            font-size: 1.3rem;
-            font-weight: bold;
-            text-decoration: none;
-            color: white;
-            border-radius: 15px;
-            background: rgba(25, 25, 25, 0.8);
-            border: 1px solid #333;
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
+            display: block; padding: 22px; 
+            font-size: 1.2rem; font-weight: 600;
+            text-decoration: none; color: white; border-radius: 8px;
+            background: rgba(255, 255, 255, 0.1); 
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.2s ease-in-out;
             backdrop-filter: blur(5px);
-            
-            /* Entrance Animation */
-            opacity: 0;
-            animation: slideUp 0.8s forwards;
         }
 
-        /* Button 1: Plans (Cyan Glow) */
-        .btn-plans { border-color: #00d4ff; animation-delay: 0.2s; }
-        .btn-plans:hover { 
-            background: #00d4ff; 
-            color: #000; 
-            box-shadow: 0 0 40px rgba(0, 212, 255, 0.6); 
-            transform: scale(1.05); 
+        /* Subtle Hover Effect (Professional) */
+        .menu-btn:hover { 
+            background: rgba(255, 255, 255, 0.2); 
+            border-color: white;
+            transform: translateY(-2px);
         }
 
-        /* Button 2: Videos (Purple Glow) */
-        .btn-videos { border-color: #d400ff; animation-delay: 0.4s; }
-        .btn-videos:hover { 
-            background: #d400ff; 
-            color: #000; 
-            box-shadow: 0 0 40px rgba(212, 0, 255, 0.6); 
-            transform: scale(1.05); 
-        }
-
-        @keyframes slideUp {
-            from { transform: translateY(60px); opacity: 0; }
-            to { transform: translateY(0); opacity: 1; }
-        }
-
-        .footer { color: #666; margin-top: 60px; font-size: 0.9rem; letter-spacing: 1px;}
-
+        .footer { color: #555; margin-top: 60px; font-size: 0.85rem; }
     </style>
 </head>
 <body>
@@ -112,20 +83,24 @@
     </div>
 
     <h1>دليلك الشامل للحياة الجامعية</h1>
+    
+    <p class="welcome-msg">
+        أهلاً بكم في كلية تكنولوجيا المعلومات.
+        <br>
+        تم تصميم هذا الموقع لمساعدتكم في رحلتكم الدراسية، بدءاً من الخطط وحتى الإرشاد الأكاديمي.
+    </p>
 
     <div class="menu-container">
-        
-        <a href="plans.html" class="menu-btn btn-plans">
+        <a href="plans.html" class="menu-btn">
             📄 الخطط الدراسية (Study Plans)
         </a>
-
-        <a href="#" class="menu-btn btn-videos" onclick="alert('Video link coming soon!'); return false;">
+        
+        <a href="#" class="menu-btn" onclick="alert('Coming Soon!');">
             🎥 الفيديوهات الإرشادية (Help Videos)
         </a>
-
     </div>
 
-    <p class="footer">© 2026 E-Library Hub</p>
+    <p class="footer">© 2026 E-Library Hub | Applied Science Private University</p>
 
 </body>
 </html>
