@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-    <title>ASU FIT Hub</title>
+    <title>اختر التخصص</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
         /* BASE STYLES */
@@ -10,122 +10,161 @@
             color: white; 
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
             text-align: center; 
-            padding: 20px; 
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            margin: 0;
-            overflow: hidden; 
+            padding: 40px; 
+            overflow-x: hidden;
         }
 
-        /* LOGO ANIMATION */
-        .logo-box img { 
-            height: 110px; /* Slightly larger for impact */
-            margin: 0 20px; 
-            vertical-align: middle;
-            filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.5));
-            transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        }
-        .logo-box img:hover { transform: scale(1.15) rotate(2deg); }
-
-        /* NEON TITLE */
+        /* NEON TITLE ANIMATION */
         h1 {
-            font-size: 2.8rem;
-            margin: 40px 0;
+            font-size: 2.5rem;
+            margin-bottom: 50px;
             color: #fff;
-            text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 20px #00d4ff, 0 0 30px #00d4ff;
-            animation: flicker 3s infinite alternate;
+            text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 20px #00d4ff, 0 0 30px #00d4ff, 0 0 40px #00d4ff;
+            animation: flicker 1.5s infinite alternate;
         }
 
         @keyframes flicker {
-            0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
-                text-shadow: 0 0 4px #fff, 0 0 11px #fff, 0 0 19px #00d4ff, 0 0 40px #00d4ff;
-                opacity: 1;
+            0%, 18%, 22%, 25%, 53%, 57%, 100% {
+                text-shadow: 0 0 4px #fff, 0 0 11px #fff, 0 0 19px #00d4ff, 0 0 40px #00d4ff, 0 0 80px #00d4ff, 0 0 90px #00d4ff;
             }
-            20%, 24%, 55% { text-shadow: none; opacity: 0.8; }
+            20%, 24%, 55% {       
+                text-shadow: none;
+            }
         }
 
-        /* MENU CONTAINER */
-        .menu-container {
-            display: flex;
-            flex-direction: column;
+        /* GRID LAYOUT */
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 25px;
-            width: 100%;
-            max-width: 450px;
+            max-width: 1100px;
+            margin: 0 auto;
+            perspective: 1000px; 
         }
 
-        /* BUTTON DESIGN */
-        .menu-btn {
-            display: block;
-            padding: 25px;
-            font-size: 1.3rem;
-            font-weight: bold;
-            text-decoration: none;
-            color: white;
-            border-radius: 15px;
-            background: rgba(25, 25, 25, 0.8);
+        /* CARD DESIGN & ANIMATION */
+        .major-card {
+            background: rgba(20, 20, 20, 0.8);
             border: 1px solid #333;
-            transition: all 0.3s ease;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: right;
             position: relative;
             overflow: hidden;
-            backdrop-filter: blur(5px);
+            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease, border-color 0.4s ease;
             
-            /* Entrance Animation */
+            /* Slide-in Animation on Load */
             opacity: 0;
-            animation: slideUp 0.8s forwards;
+            animation: slideIn 0.6s forwards;
         }
 
-        /* Button 1: Plans (Cyan Glow) */
-        .btn-plans { border-color: #00d4ff; animation-delay: 0.2s; }
-        .btn-plans:hover { 
-            background: #00d4ff; 
-            color: #000; 
-            box-shadow: 0 0 40px rgba(0, 212, 255, 0.6); 
-            transform: scale(1.05); 
-        }
+        /* Stagger animations for each card */
+        .major-card:nth-child(1) { animation-delay: 0.1s; }
+        .major-card:nth-child(2) { animation-delay: 0.2s; }
+        .major-card:nth-child(3) { animation-delay: 0.3s; }
+        .major-card:nth-child(4) { animation-delay: 0.4s; }
+        .major-card:nth-child(5) { animation-delay: 0.5s; }
 
-        /* Button 2: Videos (Purple Glow) */
-        .btn-videos { border-color: #d400ff; animation-delay: 0.4s; }
-        .btn-videos:hover { 
-            background: #d400ff; 
-            color: #000; 
-            box-shadow: 0 0 40px rgba(212, 0, 255, 0.6); 
-            transform: scale(1.05); 
-        }
-
-        @keyframes slideUp {
-            from { transform: translateY(60px); opacity: 0; }
+        @keyframes slideIn {
+            from { transform: translateY(50px); opacity: 0; }
             to { transform: translateY(0); opacity: 1; }
         }
 
-        .footer { color: #666; margin-top: 60px; font-size: 0.9rem; letter-spacing: 1px;}
+        /* HOVER EFFECTS */
+        .major-card:hover {
+            transform: scale(1.05) translateY(-10px);
+            border-color: #00d4ff;
+            box-shadow: 0 0 30px rgba(0, 212, 255, 0.4);
+            z-index: 10;
+        }
+
+        .major-card h3 {
+            color: #fff;
+            margin-top: 0;
+            border-bottom: 1px solid #444;
+            padding-bottom: 15px;
+            font-size: 1.4rem;
+        }
+
+        /* BUTTONS */
+        .download-btn {
+            display: block;
+            width: 100%;
+            text-align: center;
+            padding: 12px 0;
+            margin-top: 15px;
+            background: transparent;
+            color: #00d4ff;
+            border: 2px solid #00d4ff;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+        }
+
+        .download-btn:hover {
+            background: #00d4ff;
+            color: #000;
+            box-shadow: 0 0 20px #00d4ff;
+        }
+
+        .back-link {
+            color: #888;
+            text-decoration: none;
+            margin-top: 60px;
+            display: inline-block;
+            font-size: 1.1rem;
+            transition: color 0.3s;
+        }
+        .back-link:hover { color: white; }
 
     </style>
 </head>
 <body>
 
-    <div class="logo-box">
-        <img src="asu_logo.png" alt="ASU Logo">
-        <img src="fit_logo.png" alt="FIT Logo">
-    </div>
+    <h1>اختر تخصصك</h1>
 
-    <h1>دليلك الشامل للحياة الجامعية</h1>
-
-    <div class="menu-container">
+    <div class="grid-container">
         
-        <a href="plans.html" class="menu-btn btn-plans">
-            📄 الخطط الدراسية (Study Plans)
-        </a>
+        <div class="major-card">
+            <h3>💻 علم الحاسوب (CS)</h3>
+            <a href="https://drive.google.com/drive/u/0/folders/1o-krQ7kBgeeStnBqh3OSsn5FALgMRP-g" class="download-btn" target="_blank">
+                عرض الخطط الدراسية ➜
+            </a>
+        </div>
 
-        <a href="#" class="menu-btn btn-videos" target="_blank" onclick="alert('Video link coming soon!');">
-            🎥 الفيديوهات الإرشادية (Help Videos)
-        </a>
+        <div class="major-card">
+            <h3>⚙️ هندسة البرمجيات (SE)</h3>
+            <a href="https://drive.google.com/drive/u/0/folders/1_QiyokuW3ovr5Va2_aD9-kP-k3TflD1L" class="download-btn" target="_blank">
+                عرض الخطط الدراسية ➜
+            </a>
+        </div>
+
+        <div class="major-card">
+            <h3>🛡️ الأمن السيبراني والحوسبة السحابية</h3>
+            <a href="https://drive.google.com/drive/u/0/folders/1hEtuAfMb6bl2JkY2BjZZ0rlmVyJzcAir" class="download-btn" target="_blank">
+                عرض الخطط الدراسية ➜
+            </a>
+        </div>
+
+        <div class="major-card">
+            <h3>🎮 الواقع الممتد وتطوير الألعاب</h3>
+            <a href="https://drive.google.com/drive/u/0/folders/1wp48lCqJcnjJ1Jo_msUubldT-BLekgj5" class="download-btn" target="_blank">
+                عرض الخطط الدراسية ➜
+            </a>
+        </div>
+
+        <div class="major-card">
+            <h3>📊 علم البيانات والذكاء الاصطناعي</h3>
+            <a href="https://drive.google.com/drive/u/0/folders/1CMufjmEGQ_iVvYqh5CZ8MC92xOSQDJec" class="download-btn" target="_blank">
+                عرض الخطط الدراسية ➜
+            </a>
+        </div>
 
     </div>
 
-    <p class="footer">© 2026 E-Library Hub</p>
+    <a href="index.html" class="back-link">← العودة للصفحة الرئيسية</a>
 
 </body>
 </html>
