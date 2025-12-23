@@ -4,75 +4,103 @@
     <title>ASU FIT Hub</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
+   
         body { 
-            /* Professional IT Background with Dark Overlay */
-            background: 
-                linear-gradient(rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.95)),
-                url('https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=2070&auto=format&fit=crop');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
+            margin: 0;
+            height: 100vh;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: white;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
             
-            color: white; 
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
-            text-align: center; 
-            padding: 20px; 
-            height: 100vh; 
-            display: flex; 
-            flex-direction: column; 
-            justify-content: center; 
-            align-items: center; 
-            margin: 0; 
+            
+            background: linear-gradient(-45deg, #000000, #1a1a1a, #2b0000, #000000);
+            background-size: 400% 400%;
+            animation: gradientBG 15s ease infinite;
         }
 
-        /* LOGO STYLES (Static & Professional) */
-        .logo-box img { 
-            height: 110px; 
-            margin: 0 20px; 
-            vertical-align: middle;
-            filter: drop-shadow(0 0 4px rgba(255, 255, 255, 0.2));
-            /* No hover animation here anymore */
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
         }
 
-        /* TITLE STYLES (Steady, No Flicker) */
-        h1 {
-            font-size: 2.6rem; 
-            margin: 25px 0 10px 0; 
-            color: #fff;
-            text-shadow: 0 2px 4px rgba(0,0,0,0.5); /* Clean shadow instead of neon glow */
-            font-weight: 700;
-        }
-
-        /* WELCOME MESSAGE */
-        .welcome-msg {
-            font-size: 1.2rem;
-            color: #ccc;
-            margin-bottom: 40px;
-            max-width: 600px;
-            line-height: 1.6;
-        }
-
-        /* MENU BUTTONS */
-        .menu-container { width: 100%; max-width: 420px; display: flex; flex-direction: column; gap: 20px; }
         
+        .logo-box img { 
+            height: 100px; 
+            margin: 0 15px; 
+            filter: drop-shadow(0 0 10px rgba(255,255,255,0.2));
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+
+        
+        .glass-container {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 40px;
+            max-width: 600px;
+            width: 100%;
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+            margin-top: 30px;
+            
+            opacity: 0;
+            animation: slideUp 1s ease forwards;
+        }
+
+        h1 {
+            font-size: 2.2rem;
+            margin-bottom: 20px;
+            text-shadow: 0 2px 5px rgba(0,0,0,0.5);
+        }
+
+       
+        .welcome-ar { font-size: 1.1rem; color: #eee; margin-bottom: 15px; }
+        .divider { height: 1px; background: linear-gradient(90deg, transparent, #9D0208, transparent); margin: 15px 0; }
+        .welcome-en { font-size: 1rem; color: #ccc; font-weight: 300; }
+
+       
         .menu-btn {
-            display: block; padding: 22px; 
-            font-size: 1.2rem; font-weight: 600;
-            text-decoration: none; color: white; border-radius: 8px;
-            background: rgba(255, 255, 255, 0.1); 
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            transition: all 0.2s ease-in-out;
-            backdrop-filter: blur(5px);
+            display: block;
+            padding: 18px;
+            margin: 15px 0;
+            font-size: 1.1rem;
+            font-weight: bold;
+            text-decoration: none;
+            color: white;
+            border-radius: 50px; /* Rounded pill shape */
+            background: linear-gradient(90deg, transparent 0%, rgba(157, 2, 8, 0.2) 50%, transparent 100%);
+            border: 1px solid #9D0208;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
         }
 
-        /* Subtle Hover Effect (Professional) */
-        .menu-btn:hover { 
-            background: rgba(255, 255, 255, 0.2); 
-            border-color: white;
-            transform: translateY(-2px);
+        .menu-btn:hover {
+            background: #9D0208;
+            box-shadow: 0 0 20px #9D0208;
+            transform: scale(1.02);
         }
 
-        .footer { color: #555; margin-top: 60px; font-size: 0.85rem; }
+        
+        .footer { margin-top: 40px; color: #666; font-size: 0.8rem; letter-spacing: 1px; }
+
+        @keyframes slideUp {
+            from { transform: translateY(50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
     </style>
 </head>
 <body>
@@ -82,15 +110,24 @@
         <img src="fit_logo.png" alt="FIT Logo">
     </div>
 
-    <h1>دليلك الشامل للحياة الجامعية</h1>
-    
-    <p class="welcome-msg">
-        أهلاً بكم في كلية تكنولوجيا المعلومات.
-        <br>
-        تم تصميم هذا الموقع لمساعدتكم في رحلتكم الدراسية، بدءاً من الخطط وحتى الإرشاد الأكاديمي.
-    </p>
+    <div class="glass-container">
+        
+        <h1>دليلك الشامل للحياة الجامعية</h1>
+        
+        <div class="welcome-ar">
+            أهلاً وسهلاً بطلاب السنة الأولى! <br>
+            نحن هنا لدعم رحلتكم. اضغط أدناه للبدء.
+        </div>
+        
+        <div class="divider"></div>
+        
+        <div class="welcome-en" dir="ltr">
+            <b>Welcome First-Year Students!</b> <br>
+            Start your journey here. Select an option below.
+        </div>
 
-    <div class="menu-container">
+        <br>
+
         <a href="plans.html" class="menu-btn">
             📄 الخطط الدراسية (Study Plans)
         </a>
@@ -98,9 +135,10 @@
         <a href="#" class="menu-btn" onclick="alert('Coming Soon!');">
             🎥 الفيديوهات الإرشادية (Help Videos)
         </a>
+
     </div>
 
-    <p class="footer">© 2026 E-Library Hub | Applied Science Private University</p>
+    <p class="footer">© 2026 E-Library Hub | ASU</p>
 
 </body>
 </html>
