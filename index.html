@@ -4,7 +4,7 @@
     <title>ASU FIT Hub</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
-   
+        /* ANIMATED GRADIENT BACKGROUND */
         body { 
             margin: 0;
             height: 100vh;
@@ -16,8 +16,6 @@
             align-items: center;
             justify-content: center;
             padding: 20px;
-            
-            
             background: linear-gradient(-45deg, #000000, #1a1a1a, #2b0000, #000000);
             background-size: 400% 400%;
             animation: gradientBG 15s ease infinite;
@@ -29,7 +27,7 @@
             100% { background-position: 0% 50%; }
         }
 
-        
+        /* LOGO AREA - UPDATED TO ACADEMY LOGO */
         .logo-box img { 
             height: 100px; 
             margin: 0 15px; 
@@ -43,11 +41,10 @@
             100% { transform: translateY(0px); }
         }
 
-        
+        /* MAIN GLASS CARD */
         .glass-container {
             background: rgba(255, 255, 255, 0.05);
             backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
             border: 1px solid rgba(255, 255, 255, 0.1);
             border-radius: 20px;
             padding: 40px;
@@ -55,37 +52,29 @@
             width: 100%;
             box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
             margin-top: 30px;
-            
             opacity: 0;
             animation: slideUp 1s ease forwards;
         }
 
-        h1 {
-            font-size: 2.2rem;
-            margin-bottom: 20px;
-            text-shadow: 0 2px 5px rgba(0,0,0,0.5);
-        }
+        h1 { font-size: 2.2rem; margin-bottom: 20px; text-shadow: 0 2px 5px rgba(0,0,0,0.5); }
 
-       
         .welcome-ar { font-size: 1.1rem; color: #eee; margin-bottom: 15px; }
         .divider { height: 1px; background: linear-gradient(90deg, transparent, #9D0208, transparent); margin: 15px 0; }
         .welcome-en { font-size: 1rem; color: #ccc; font-weight: 300; }
 
-       
+        /* BUTTONS */
         .menu-btn {
             display: block;
-            padding: 18px;
+            padding: 20px;
             margin: 15px 0;
             font-size: 1.1rem;
             font-weight: bold;
             text-decoration: none;
             color: white;
-            border-radius: 50px; /* Rounded pill shape */
+            border-radius: 50px;
             background: linear-gradient(90deg, transparent 0%, rgba(157, 2, 8, 0.2) 50%, transparent 100%);
             border: 1px solid #9D0208;
             transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
         }
 
         .menu-btn:hover {
@@ -94,7 +83,6 @@
             transform: scale(1.02);
         }
 
-        
         .footer { margin-top: 40px; color: #666; font-size: 0.8rem; letter-spacing: 1px; }
 
         @keyframes slideUp {
@@ -106,7 +94,7 @@
 <body>
 
     <div class="logo-box">
-        <img src="asu_logo.png" alt="ASU Logo">
+        <img src="asu_academy.jpeg" alt="ASU Academy">
         <img src="fit_logo.png" alt="FIT Logo">
     </div>
 
@@ -116,7 +104,7 @@
         
         <div class="welcome-ar">
             أهلاً وسهلاً بطلاب السنة الأولى! <br>
-            نحن هنا لدعم رحلتكم. اضغط أدناه للبدء.
+            نحن هنا لدعم رحلتكم. اختر من القائمة أدناه.
         </div>
         
         <div class="divider"></div>
@@ -132,13 +120,13 @@
             📄 الخطط الدراسية (Study Plans)
         </a>
         
-        <a href="#" class="menu-btn" onclick="alert('Coming Soon!');">
-            🎥 الفيديوهات الإرشادية (Help Videos)
+        <a href="registration.html" class="menu-btn">
+            🎓 خطوات التسجيل (Registration Steps)
         </a>
 
     </div>
 
-    <p class="footer">© 2026 E-Library Hub | ASU</p>
+    <p class="footer">© 2026 E-Library Hub | ASU Academy</p>
 
 </body>
 </html>
