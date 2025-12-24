@@ -39,15 +39,16 @@
             padding: 20px 0;
         }
 
-        /* The Vertical Line */
+        /* The Vertical Line - FIXED LAYER ORDER */
         .timeline-section::after {
             content: '';
             position: absolute;
             width: 3px;
             background-color: #333;
+            z-index: 0; /* Puts the line in the back */
             top: 0;
             bottom: 0;
-            right: 30px; /* Position of the line */
+            right: 30px; 
         }
 
         /* Timeline Item */
@@ -68,18 +69,18 @@
             to { transform: translateX(0); opacity: 1; }
         }
 
-        /* The Dot */
+        /* The Dot - FIXED LAYER ORDER */
         .timeline-item::after {
             content: '';
             position: absolute;
             width: 20px;
             height: 20px;
-            right: 21px; /* Centers dot on the line */
+            right: 21px; 
             background-color: #000;
             border: 3px solid #9D0208;
             top: 25px;
             border-radius: 50%;
-            z-index: 2;
+            z-index: 10; /* Ensures the dot is on top of the line */
             transition: 0.3s;
         }
         
@@ -93,6 +94,8 @@
             border-radius: 15px;
             border: 1px solid rgba(255, 255, 255, 0.1);
             transition: 0.3s;
+            position: relative;
+            z-index: 5; /* Ensures content sits above the line too */
         }
 
         .timeline-content:hover {
