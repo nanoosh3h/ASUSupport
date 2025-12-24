@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <title>دليل التسجيل</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        /* ANIMATED GRADIENT BACKGROUND */
+        body { 
+            margin: 0;
+            min-height: 100vh;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: white;
+            text-align: center;
+            background: linear-gradient(-45deg, #000000, #1a1a1a, #2b0000, #000000);
+            background-size: 400% 400%;
+            animation: gradientBG 15s ease infinite;
+            padding: 40px 20px;
+        }
+
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        h1 {
+            font-size: 2.2rem;
+            margin-bottom: 40px;
+            color: white;
+            text-shadow: 0 0 15px #9D0208;
+        }
+
+        /* TIMELINE CONTAINER */
+        .timeline-section {
+            max-width: 700px;
+            margin: 0 auto;
+            text-align: right;
+            position: relative;
+            padding: 20px 0;
+        }
+
+        /* The Vertical Line */
+        .timeline-section::after {
+            content: '';
+            position: absolute;
+            width: 3px;
+            background-color: #333;
+            top: 0;
+            bottom: 0;
+            right: 30px; /* Position of the line */
+        }
+
+        /* Timeline Item */
+        .timeline-item {
+            padding: 10px 50px 40px 10px;
+            position: relative;
+            opacity: 0;
+            animation: slideIn 0.6s forwards;
+        }
+
+        /* Staggered Animation */
+        .timeline-item:nth-child(1) { animation-delay: 0.2s; }
+        .timeline-item:nth-child(2) { animation-delay: 0.4s; }
+        .timeline-item:nth-child(3) { animation-delay: 0.6s; }
+
+        @keyframes slideIn {
+            from { transform: translateX(-30px); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+
+        /* The Dot */
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            right: 21px; /* Centers dot on the line */
+            background-color: #000;
+            border: 3px solid #9D0208;
+            top: 25px;
+            border-radius: 50%;
+            z-index: 2;
+            transition: 0.3s;
+        }
+        
+        .timeline-item:hover::after { background-color: #9D0208; box-shadow: 0 0 15px #9D0208; }
+
+        /* Content Box */
+        .timeline-content {
+            padding: 25px;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: 0.3s;
+        }
+
+        .timeline-content:hover {
+            transform: translateY(-5px);
+            border-color: #9D0208;
+        }
+
+        .timeline-content h3 { margin-top: 0; color: #fff; font-size: 1.3rem; margin-bottom: 10px;}
+        .timeline-content p { color: #ccc; font-size: 1rem; line-height: 1.6; }
+
+        /* Video Button */
+        .video-btn {
+            display: inline-block;
+            margin-top: 15px;
+            background: rgba(157, 2, 8, 0.2);
+            color: #fff;
+            text-decoration: none;
+            font-size: 0.95rem;
+            border: 1px solid #9D0208;
+            padding: 10px 20px;
+            border-radius: 30px;
+            transition: 0.3s;
+        }
+        .video-btn:hover { background: #9D0208; box-shadow: 0 0 15px #9D0208; }
+
+        .back-link {
+            display: inline-block;
+            margin-top: 50px;
+            color: #888;
+            text-decoration: none;
+            border-bottom: 1px solid transparent;
+            transition: 0.3s;
+        }
+        .back-link:hover { color: #fff; border-color: #fff; }
+
+    </style>
+</head>
+<body>
+
+    <h1>رحلة التسجيل (Registration Journey)</h1>
+
+    <div class="timeline-section">
+
+        <div class="timeline-item">
+            <div class="timeline-content">
+                <h3>1. معرفة المرشد الأكاديمي (Academic Advisor)</h3>
+                <p>تعرف على مرشدك الأكاديمي الذي سيساعدك في اختيار المواد وحل المشاكل الأكاديمية.</p>
+                <a href="#" class="video-btn" target="_blank">🎥 مشاهدة الشرح (Watch Video)</a>
+            </div>
+        </div>
+
+        <div class="timeline-item">
+            <div class="timeline-content">
+                <h3>2. الدفع والرسوم (Payment)</h3>
+                <p>بعد اختيار المواد، يجب تسديد الرسوم. تعرف على طرق الدفع وكيفية معرفة المبلغ المطلوب.</p>
+                <a href="#" class="video-btn" target="_blank">💰 مشاهدة الشرح (Watch Video)</a>
+            </div>
+        </div>
+
+        <div class="timeline-item">
+            <div class="timeline-content">
+                <h3>3. تسجيل المواد (Registration)</h3>
+                <p>الخطوة الأخيرة هي تثبيت الجدول الدراسي عبر بوابة الطالب الإلكترونية.</p>
+                <a href="#" class="video-btn" target="_blank">💻 مشاهدة الشرح (Watch Video)</a>
+            </div>
+        </div>
+
+    </div>
+
+    <a href="index.html" class="back-link">← العودة للصفحة الرئيسية</a>
+
+</body>
+</html>
