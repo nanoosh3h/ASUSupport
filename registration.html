@@ -37,26 +37,33 @@
             text-align: right;
             position: relative;
             padding: 20px 0;
+            z-index: 1; /* Establishes a stacking context */
         }
 
-        /* The Vertical Line - FIXED LAYER ORDER */
+        /* The Vertical Line - SENT TO BACK */
         .timeline-section::after {
             content: '';
             position: absolute;
-            width: 3px;
-            background-color: #333;
-            z-index: 0; /* Puts the line in the back */
+            width: 2px; /* Slightly thinner for a cleaner look */
+            background-color: #444;
+            
+            /* THIS IS THE FIX: Send it behind everything */
+            z-index: -1; 
+            
             top: 0;
             bottom: 0;
-            right: 30px; 
+            right: 30px; /* Center point is at 31px */
         }
 
-        /* Timeline Item */
+        /* Timeline Item - BROUGHT TO FRONT */
         .timeline-item {
-            padding: 10px 50px 40px 10px;
+            padding: 10px 60px 40px 10px; /* Added more space on right so text doesn't hit the dot */
             position: relative;
             opacity: 0;
             animation: slideIn 0.6s forwards;
+            
+            /* THIS IS THE FIX: Ensure items sit on top of the line */
+            z-index: 2; 
         }
 
         /* Staggered Animation */
@@ -69,19 +76,25 @@
             to { transform: translateX(0); opacity: 1; }
         }
 
-        /* The Dot - FIXED LAYER ORDER */
+        /* The Dot - PERFECTLY CENTERED */
         .timeline-item::after {
             content: '';
             position: absolute;
+            
+            /* Sizing */
             width: 20px;
             height: 20px;
+            
+            /* Alignment: 21px right + 10px half-width = 31px center (Matches line) */
             right: 21px; 
+            top: 25px;
+            
             background-color: #000;
             border: 3px solid #9D0208;
-            top: 25px;
             border-radius: 50%;
-            z-index: 10; /* Ensures the dot is on top of the line */
+            z-index: 10;
             transition: 0.3s;
+            box-shadow: 0 0 5px rgba(0,0,0,0.5); /* Adds depth so it pops off the line */
         }
         
         .timeline-item:hover::after { background-color: #9D0208; box-shadow: 0 0 15px #9D0208; }
@@ -94,8 +107,6 @@
             border-radius: 15px;
             border: 1px solid rgba(255, 255, 255, 0.1);
             transition: 0.3s;
-            position: relative;
-            z-index: 5; /* Ensures content sits above the line too */
         }
 
         .timeline-content:hover {
