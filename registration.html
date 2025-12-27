@@ -4,7 +4,6 @@
     <title>دليل التسجيل</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
-        /* ANIMATED GRADIENT BACKGROUND */
         body { 
             margin: 0;
             min-height: 100vh;
@@ -30,43 +29,34 @@
             text-shadow: 0 0 15px #9D0208;
         }
 
-        /* TIMELINE CONTAINER */
         .timeline-section {
             max-width: 700px;
             margin: 0 auto;
             text-align: right;
             position: relative;
             padding: 20px 0;
-            z-index: 1; /* Establishes a stacking context */
+            z-index: 1; 
         }
 
-        /* The Vertical Line - SENT TO BACK */
         .timeline-section::after {
             content: '';
             position: absolute;
-            width: 2px; /* Slightly thinner for a cleaner look */
+            width: 2px;
             background-color: #444;
-            
-            /* THIS IS THE FIX: Send it behind everything */
             z-index: -1; 
-            
             top: 0;
             bottom: 0;
-            right: 30px; /* Center point is at 31px */
+            right: 30px; 
         }
 
-        /* Timeline Item - BROUGHT TO FRONT */
         .timeline-item {
-            padding: 10px 60px 40px 10px; /* Added more space on right so text doesn't hit the dot */
+            padding: 10px 60px 40px 10px; 
             position: relative;
             opacity: 0;
             animation: slideIn 0.6s forwards;
-            
-            /* THIS IS THE FIX: Ensure items sit on top of the line */
             z-index: 2; 
         }
 
-        /* Staggered Animation */
         .timeline-item:nth-child(1) { animation-delay: 0.2s; }
         .timeline-item:nth-child(2) { animation-delay: 0.4s; }
         .timeline-item:nth-child(3) { animation-delay: 0.6s; }
@@ -76,30 +66,23 @@
             to { transform: translateX(0); opacity: 1; }
         }
 
-        /* The Dot - PERFECTLY CENTERED */
         .timeline-item::after {
             content: '';
             position: absolute;
-            
-            /* Sizing */
             width: 20px;
             height: 20px;
-            
-            /* Alignment: 21px right + 10px half-width = 31px center (Matches line) */
             right: 21px; 
             top: 25px;
-            
             background-color: #000;
             border: 3px solid #9D0208;
             border-radius: 50%;
             z-index: 10;
             transition: 0.3s;
-            box-shadow: 0 0 5px rgba(0,0,0,0.5); /* Adds depth so it pops off the line */
+            box-shadow: 0 0 5px rgba(0,0,0,0.5); 
         }
         
         .timeline-item:hover::after { background-color: #9D0208; box-shadow: 0 0 15px #9D0208; }
 
-        /* Content Box */
         .timeline-content {
             padding: 25px;
             background: rgba(255, 255, 255, 0.05);
@@ -117,7 +100,6 @@
         .timeline-content h3 { margin-top: 0; color: #fff; font-size: 1.3rem; margin-bottom: 10px;}
         .timeline-content p { color: #ccc; font-size: 1rem; line-height: 1.6; }
 
-        /* Video Button */
         .video-btn {
             display: inline-block;
             margin-top: 15px;
@@ -131,6 +113,17 @@
             transition: 0.3s;
         }
         .video-btn:hover { background: #9D0208; box-shadow: 0 0 15px #9D0208; }
+
+        /* Style for the added images */
+        .info-img {
+            display: block; /* Ensures it sits on its own line */
+            width: 100%;
+            max-width: 400px;
+            border-radius: 10px;
+            margin-top: 15px;
+            border: 1px solid #444;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
 
         .back-link {
             display: inline-block;
@@ -154,6 +147,9 @@
             <div class="timeline-content">
                 <h3>1. معرفة المرشد الأكاديمي (Academic Advisor)</h3>
                 <p>تعرف على مرشدك الأكاديمي الذي سيساعدك في اختيار المواد وحل المشاكل الأكاديمية.</p>
+                
+                <img src="shared image.jfif" alt="Advisor Info" class="info-img">
+                
                 <a href="#" class="video-btn" target="_blank">🎥 مشاهدة الشرح (Watch Video)</a>
             </div>
         </div>
@@ -162,7 +158,8 @@
             <div class="timeline-content">
                 <h3>2. الدفع والرسوم (Payment)</h3>
                 <p>بعد اختيار المواد، يجب تسديد الرسوم. تعرف على طرق الدفع وكيفية معرفة المبلغ المطلوب.</p>
-                <a href="#" class="video-btn" target="_blank">💰 مشاهدة الشرح (Watch Video)</a>
+                
+                <img src="payment.jpg" alt="Payment Methods" class="info-img">
             </div>
         </div>
 
@@ -170,6 +167,7 @@
             <div class="timeline-content">
                 <h3>3. تسجيل المواد (Registration)</h3>
                 <p>الخطوة الأخيرة هي تثبيت الجدول الدراسي عبر بوابة الطالب الإلكترونية.</p>
+                
                 <a href="#" class="video-btn" target="_blank">💻 مشاهدة الشرح (Watch Video)</a>
             </div>
         </div>
