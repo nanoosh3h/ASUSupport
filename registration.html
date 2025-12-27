@@ -111,18 +111,32 @@
             padding: 10px 20px;
             border-radius: 30px;
             transition: 0.3s;
+            /* Center the button */
+            display: block; 
+            width: fit-content;
+            margin: 15px auto 0 auto;
         }
         .video-btn:hover { background: #9D0208; box-shadow: 0 0 15px #9D0208; }
 
-        /* Style for the added images */
+        /* UPDATED IMAGE STYLE: Centered */
         .info-img {
-            display: block; /* Ensures it sits on its own line */
+            display: block; 
             width: 100%;
             max-width: 400px;
             border-radius: 10px;
-            margin-top: 15px;
+            margin: 15px auto; /* Centering */
             border: 1px solid #444;
             box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+
+        /* CAPTION STYLE */
+        .img-caption {
+            font-size: 0.85rem;
+            color: #aaa;
+            text-align: center;
+            margin-top: -10px;
+            margin-bottom: 15px;
+            font-style: italic;
         }
 
         .back-link {
@@ -150,6 +164,11 @@
                 
                 <img src="shared image.jfif" alt="Advisor Info" class="info-img">
                 
+                <div class="img-caption">
+                    استخدم هذه القائمة لمعرفة موقع مكتب المرشد <br>
+                    (Use this map to find your advisor's office)
+                </div>
+
                 <a href="#" class="video-btn" target="_blank">🎥 مشاهدة الشرح (Watch Video)</a>
             </div>
         </div>
